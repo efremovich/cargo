@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class DatePickerClass extends StatefulWidget {
   @override
@@ -7,45 +8,39 @@ class DatePickerClass extends StatefulWidget {
 
 class _DatePickerClassState extends State<DatePickerClass> {
   DateTime selectedDate = DateTime.now();
+  DateFormat dateFormat = DateFormat("dd.MM.yy");
+  String titleDate = "Когда";
 
   _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
+      locale: const Locale("ru"),
       context: context,
       initialDate: selectedDate,
-      firstDate: DateTime(DateTime.now().year),
+      firstDate: DateTime.now(),
       lastDate: DateTime(2025),
     );
     if (picked != null && picked != selectedDate) {
       setState(() {
         selectedDate = picked;
+        titleDate = dateFormat.format(selectedDate);
       });
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Text(
-            "${selectedDate.toLocal()}".split(' ')[0],
-            style: TextStyle(fontSize: 55, fontWeight: FontWeight.bold),
-          ),
-          SizedBox(
-            height: 20.0,
-          ),
-          ElevatedButton(
-            onPressed: () => _selectDate(context), // Refer step 3
-            child: Text(
-              'Pick Date',
-              style:
-                  TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+    return Column(
+      children: [
+        Row(
+          children: [
+            ElevatedButton.icon(
+              onPressed: () => _selectDate(context),
+              label: Text("${titleDate}"),
+              icon: Icon(Icons.calendar_view_month_rounded),
             ),
-            /* color: Colors.black, */
-          ),
-        ],
-      ),
+          ],
+        ),
+      ],
     );
   }
 }

@@ -15,10 +15,10 @@ class _MyWelcomeWidgetState extends State<MyWelcomeWidget> {
   @override
   void initState() {
     super.initState();
-    Timer(
-        const Duration(seconds: 1),
-        () => Navigator.of(context).pushReplacement(MaterialPageRoute(
-            builder: (BuildContext context) => const MySearchingWidget())));
+    /* Timer( */
+    /*     const Duration(seconds: 1), */
+    /*     () => Navigator.of(context).pushReplacement(MaterialPageRoute( */
+    /*         builder: (BuildContext context) => const MySearchingWidget()))); */
   }
 
   @override
@@ -28,13 +28,19 @@ class _MyWelcomeWidgetState extends State<MyWelcomeWidget> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Expanded(child: LogoWidget(), flex: 12),
-            const Expanded(
-              child: Text(
-                'Линия спорта',
-                textAlign: TextAlign.center,
-              ),
-              flex: 1,
+            const Spacer(),
+            const LogoWidget(),
+            const Spacer(),
+            ElevatedButton(
+                onPressed: () => {
+                      Navigator.restorablePushNamed(
+                          context, MySearchingWidget.routeName),
+                    },
+                child: Text(">")),
+            const Spacer(),
+            const Text(
+              'Линия спорта',
+              textAlign: TextAlign.center,
             ),
           ],
         ),
@@ -54,7 +60,7 @@ class LogoWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Card(
-          color: xLogoColor,
+          color: xPrimaryColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(36.0),
           ),
@@ -74,7 +80,7 @@ class LogoWidget extends StatelessWidget {
         const Padding(
           padding: EdgeInsets.all(8.0),
           child: Text(
-            "КарГО",
+            "CarGO",
             style: TextStyle(fontSize: 26),
           ),
         ),

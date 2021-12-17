@@ -1,4 +1,5 @@
 import 'package:cargo/src/constans/colors.dart';
+import 'package:cargo/src/serching/seraching_widget.dart';
 import 'package:cargo/src/welcome/welcome_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -8,6 +9,7 @@ import 'sample_feature/sample_item_details_view.dart';
 import 'sample_feature/sample_item_list_view.dart';
 import 'settings/settings_controller.dart';
 import 'settings/settings_view.dart';
+import 'dart:math';
 
 /// The Widget that configures your application.
 class MyApp extends StatelessWidget {
@@ -17,13 +19,41 @@ class MyApp extends StatelessWidget {
   }) : super(key: key);
 
   final SettingsController settingsController;
+  MaterialColor generateMaterialColor(Color color) {
+    return MaterialColor(color.value, {
+      50: tintColor(color, 0.9),
+      100: tintColor(color, 0.8),
+      200: tintColor(color, 0.6),
+      300: tintColor(color, 0.4),
+      400: tintColor(color, 0.2),
+      500: color,
+      600: shadeColor(color, 0.1),
+      700: shadeColor(color, 0.2),
+      800: shadeColor(color, 0.3),
+      900: shadeColor(color, 0.4),
+    });
+  }
+
+  int tintValue(int value, double factor) =>
+      max(0, min((value + ((255 - value) * factor)).round(), 255));
+
+  Color tintColor(Color color, double factor) => Color.fromRGBO(
+      tintValue(color.red, factor),
+      tintValue(color.green, factor),
+      tintValue(color.blue, factor),
+      1);
+
+  int shadeValue(int value, double factor) =>
+      max(0, min(value - (value * factor).round(), 255));
+
+  Color shadeColor(Color color, double factor) => Color.fromRGBO(
+      shadeValue(color.red, factor),
+      shadeValue(color.green, factor),
+      shadeValue(color.blue, factor),
+      1);
 
   @override
   Widget build(BuildContext context) {
-    // Glue the SettingsController to the MaterialApp.
-    //
-    // The AnimatedBuilder Widget listens to the SettingsController for changes.
-    // Whenever the user updates their settings, the MaterialApp is rebuilt.
     return AnimatedBuilder(
       animation: settingsController,
       builder: (BuildContext context, Widget? child) {
@@ -33,7 +63,6 @@ class MyApp extends StatelessWidget {
           // returns to the app after it has been killed while running in the
           // background.
           restorationScopeId: 'app',
-
           // Provide the generated AppLocalizations to the MaterialApp. This
           // allows descendant Widgets to display the correct translations
           // depending on the user's locale.
@@ -45,27 +74,23 @@ class MyApp extends StatelessWidget {
           ],
           supportedLocales: const [
             Locale('en', ''), // English, no country code
+            Locale('ru', "RU"),
           ],
 
-          // Use AppLocalizations to configure the correct application title
-          // depending on the user's locale.
-          //
-          // The appTitle is defined in .arb files found in the localization
-          // directory.
           onGenerateTitle: (BuildContext context) =>
               AppLocalizations.of(context)!.appTitle,
 
-          // Define a light and dark color theme. Then, read the user's
-          // preferred ThemeMode (light, dark, or system default) from the
-          // SettingsController to display the correct theme.
           theme: ThemeData(
             visualDensity: VisualDensity.adaptivePlatformDensity,
+            fontFamily: "SFUI",
+            primarySwatch: generateMaterialColor(xPrimaryColor),
+            textTheme:
+                const TextTheme(bodyText2: TextStyle(color: xPrimaryColor)),
           ),
-          /* darkTheme: ThemeData.dark(), */
+          darkTheme: ThemeData.dark(),
           /* themeMode: settingsController.themeMode, */
           debugShowCheckedModeBanner: false,
-          // Define a function to handle named routes in order to support
-          // Flutter web url navigation and deep linking.
+
           onGenerateRoute: (RouteSettings routeSettings) {
             return MaterialPageRoute<void>(
               settings: routeSettings,
@@ -77,6 +102,8 @@ class MyApp extends StatelessWidget {
                     return const SampleItemDetailsView();
                   case SampleItemListView.routeName:
                     return const SampleItemListView();
+                  case MySearchingWidget.routeName:
+                    return const MySearchingWidget();
                   default:
                     return const MyWelcomeWidget();
                 }
