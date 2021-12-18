@@ -17,41 +17,46 @@ class _MySearchingWidgetState extends State<MySearchingWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(
-      children: [
-        Row(
-          children: [
-            Expanded(
-              child: TextField(
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: 'Откуда',
-                ),
+      appBar: AppBar(
+        title: const Text("Купить билет на автобус"),
+      ),
+      body: Column(
+        children: [
+          Row(
+            children: [
+              Column(
+                children: [
+                  DatePickerClass(),
+                ],
               ),
-            ),
-            Icon(
-              Icons.refresh_outlined,
-              size: 18,
-            ),
-            Expanded(
-              child: TextField(
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: 'Куда',
-                ),
-              ),
-            ),
-            DatePickerClass(),
-          ],
+              SelecCityWidget(hintText: "Откуда"),
+              SelecCityWidget(hintText: "Куда"),
+            ],
+          ),
+          DatePickerClass(),
+        ],
+      ),
+    );
+  }
+}
+
+class SelecCityWidget extends StatelessWidget {
+  const SelecCityWidget({
+    Key? key,
+    required this.hintText,
+  }) : super(key: key);
+
+  final String hintText;
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: TextField(
+        decoration: InputDecoration(
+          border: const OutlineInputBorder(),
+          hintText: hintText,
         ),
-        Spacer(),
-        ElevatedButton(
-            onPressed: () => {
-                  Navigator.restorablePushNamed(
-                      context, MyWelcomeWidget.routeName),
-                },
-            child: Text("<")),
-      ],
-    ));
+      ),
+    );
   }
 }

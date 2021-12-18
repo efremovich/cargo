@@ -74,12 +74,9 @@ class MyApp extends StatelessWidget {
           ],
           supportedLocales: const [
             Locale('en', ''), // English, no country code
-            Locale('ru', "RU"),
           ],
-
           onGenerateTitle: (BuildContext context) =>
               AppLocalizations.of(context)!.appTitle,
-
           theme: ThemeData(
             visualDensity: VisualDensity.adaptivePlatformDensity,
             fontFamily: "SFUI",
@@ -90,7 +87,6 @@ class MyApp extends StatelessWidget {
           darkTheme: ThemeData.dark(),
           /* themeMode: settingsController.themeMode, */
           debugShowCheckedModeBanner: false,
-
           onGenerateRoute: (RouteSettings routeSettings) {
             return MaterialPageRoute<void>(
               settings: routeSettings,
