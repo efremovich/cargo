@@ -1,10 +1,10 @@
 import 'package:cargo/src/serching/components/date_picker_widget.dart';
-import 'package:cargo/src/welcome/welcome_widget.dart';
 import 'package:flutter/material.dart';
 
 class MySearchingWidget extends StatefulWidget {
-  @override
-  const MySearchingWidget({Key? key}) : super(key: key);
+  const MySearchingWidget({
+    Key? key,
+  }) : super(key: key);
   static const routeName = '/searchingTikets';
 
   @override
@@ -14,34 +14,51 @@ class MySearchingWidget extends StatefulWidget {
 class _MySearchingWidgetState extends State<MySearchingWidget> {
   DateTime selectedDate = DateTime.now();
 
+  final String from = "Откуда";
+  final String where = "Куда";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Купить билет на автобус"),
       ),
-      body: Column(
-        children: [
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(children: [
           Row(
             children: [
-              Column(
-                children: [
-                  DatePickerClass(),
-                ],
+              Expanded(
+                child: Column(
+                  children: [
+                    SelectCityWidget(hintText: from),
+                    SelectCityWidget(hintText: where),
+                  ],
+                ),
+                flex: 10,
               ),
-              SelecCityWidget(hintText: "Откуда"),
-              SelecCityWidget(hintText: "Куда"),
+              Expanded(
+                child: GestureDetector(
+                  onTap: () {
+                    print("hi");
+                  },
+                  child: const Icon(
+                    Icons.import_export,
+                    semanticLabel: "Поменять местами",
+                    size: 32,
+                  ),
+                ),
+              ),
             ],
           ),
-          DatePickerClass(),
-        ],
+          const DatePickerClass()
+        ]),
       ),
     );
   }
 }
 
-class SelecCityWidget extends StatelessWidget {
-  const SelecCityWidget({
+class SelectCityWidget extends StatelessWidget {
+  const SelectCityWidget({
     Key? key,
     required this.hintText,
   }) : super(key: key);
@@ -50,12 +67,9 @@ class SelecCityWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: TextField(
-        decoration: InputDecoration(
-          border: const OutlineInputBorder(),
-          hintText: hintText,
-        ),
+    return TextField(
+      decoration: InputDecoration(
+        hintText: hintText,
       ),
     );
   }

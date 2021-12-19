@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:intl/date_symbol_data_local.dart';
 
 class DatePickerClass extends StatefulWidget {
   const DatePickerClass({Key? key}) : super(key: key);
@@ -11,8 +10,8 @@ class DatePickerClass extends StatefulWidget {
 
 class _DatePickerClassState extends State<DatePickerClass> {
   DateTime selectedDate = DateTime.now();
-  DateFormat dateFormat = DateFormat.MMMMd("ru");
-  String titleDate = "Когда";
+  DateFormat dateFormat = DateFormat("dd MMM, EEE", "ru");
+  String titleDate = DateFormat("dd MMM, EEE", "ru").format(DateTime.now());
 
   _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
@@ -34,14 +33,13 @@ class _DatePickerClassState extends State<DatePickerClass> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(
-          children: [
-            ElevatedButton.icon(
-              onPressed: () => _selectDate(context),
-              label: Text(titleDate),
-              icon: const Icon(Icons.calendar_view_month_rounded),
-            ),
-          ],
+        TextField(
+          readOnly: true,
+          onTap: () => _selectDate(context),
+          decoration: InputDecoration(
+            icon: const Icon(Icons.date_range),
+            hintText: titleDate,
+          ),
         ),
       ],
     );
