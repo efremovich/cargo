@@ -33,12 +33,16 @@ class _DatePickerClassState extends State<DatePickerClass> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        TextField(
-          readOnly: true,
+        GestureDetector(
           onTap: () => _selectDate(context),
-          decoration: InputDecoration(
-            icon: const Icon(Icons.date_range),
-            hintText: titleDate,
+          child: AbsorbPointer(
+            child: TextField(
+              readOnly: true,
+              decoration: InputDecoration(
+                icon: const Icon(Icons.date_range),
+                hintText: titleDate,
+              ),
+            ),
           ),
         ),
       ],

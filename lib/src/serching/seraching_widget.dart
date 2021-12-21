@@ -50,7 +50,11 @@ class _MySearchingWidgetState extends State<MySearchingWidget> {
               ),
             ],
           ),
-          const DatePickerClass()
+          const DatePickerClass(),
+          ElevatedButton.icon(
+              onPressed: () {},
+              icon: const Icon(Icons.find_in_page_outlined),
+              label: const Text("Найти"))
         ]),
       ),
     );
