@@ -50,7 +50,16 @@ class _MySearchingWidgetState extends State<MySearchingWidget> {
               ),
             ],
           ),
-          const DatePickerClass(),
+          Row(
+            children: [
+              Expanded(child: const DatePickerClass()),
+              Expanded(
+                  child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SelectCityWidget(hintText: "1 пассажир"),
+              )),
+            ],
+          ),
           ElevatedButton.icon(
               onPressed: () {},
               icon: const Icon(Icons.find_in_page_outlined),
