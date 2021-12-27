@@ -51,11 +51,11 @@ class _MySearchingWidgetState extends State<MySearchingWidget> {
             ],
           ),
           Row(
-            children: [
-              Expanded(child: const DatePickerClass()),
+            children: const [
+              Expanded(child: DatePickerClass()),
               Expanded(
                   child: Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(8.0),
                 child: SelectCityWidget(hintText: "1 пассажир"),
               )),
             ],
