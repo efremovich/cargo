@@ -1,4 +1,4 @@
-import 'package:cargo/src/bloc/sity_bloc.dart';
+import 'package:cargo/src/bloc/sity_block/sity_bloc.dart';
 import 'package:cargo/src/serching/widgets/date_picker_widget.dart';
 import 'package:cargo/src/serching/widgets/select_sity_widget.dart';
 import 'package:cargo/src/serching/widgets/sity_list.dart';
@@ -14,6 +14,8 @@ class MySearchingWidget extends StatefulWidget {
   @override
   _MySearchingWidgetState createState() => _MySearchingWidgetState();
 }
+
+const String formData = "";
 
 class _MySearchingWidgetState extends State<MySearchingWidget> {
   DateTime selectedDate = DateTime.now();
@@ -36,7 +38,6 @@ class _MySearchingWidgetState extends State<MySearchingWidget> {
                 Expanded(
                   child: Column(
                     children: [
-                      AutocompleteBasicUserExample(hintText: from),
                       SelectCityWidget(hintText: from),
                       SelectCityWidget(hintText: where),
                     ],

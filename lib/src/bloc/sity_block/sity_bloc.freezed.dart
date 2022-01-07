@@ -307,6 +307,10 @@ class _$SityStateTearOff {
     return const _errorState();
   }
 
+  _timeoutState timeOutState() {
+    return const _timeoutState();
+  }
+
   _LoadedSities loadedSities(List<Sity> loadedSities) {
     return _LoadedSities(
       loadedSities,
@@ -324,6 +328,7 @@ mixin _$SityState {
     required TResult Function() initial,
     required TResult Function() getSiteis,
     required TResult Function() errorState,
+    required TResult Function() timeOutState,
     required TResult Function(List<Sity> loadedSities) loadedSities,
   }) =>
       throw _privateConstructorUsedError;
@@ -332,6 +337,7 @@ mixin _$SityState {
     TResult Function()? initial,
     TResult Function()? getSiteis,
     TResult Function()? errorState,
+    TResult Function()? timeOutState,
     TResult Function(List<Sity> loadedSities)? loadedSities,
   }) =>
       throw _privateConstructorUsedError;
@@ -340,6 +346,7 @@ mixin _$SityState {
     TResult Function()? initial,
     TResult Function()? getSiteis,
     TResult Function()? errorState,
+    TResult Function()? timeOutState,
     TResult Function(List<Sity> loadedSities)? loadedSities,
     required TResult orElse(),
   }) =>
@@ -349,6 +356,7 @@ mixin _$SityState {
     required TResult Function(_Initial value) initial,
     required TResult Function(_GetSiteis value) getSiteis,
     required TResult Function(_errorState value) errorState,
+    required TResult Function(_timeoutState value) timeOutState,
     required TResult Function(_LoadedSities value) loadedSities,
   }) =>
       throw _privateConstructorUsedError;
@@ -357,6 +365,7 @@ mixin _$SityState {
     TResult Function(_Initial value)? initial,
     TResult Function(_GetSiteis value)? getSiteis,
     TResult Function(_errorState value)? errorState,
+    TResult Function(_timeoutState value)? timeOutState,
     TResult Function(_LoadedSities value)? loadedSities,
   }) =>
       throw _privateConstructorUsedError;
@@ -365,6 +374,7 @@ mixin _$SityState {
     TResult Function(_Initial value)? initial,
     TResult Function(_GetSiteis value)? getSiteis,
     TResult Function(_errorState value)? errorState,
+    TResult Function(_timeoutState value)? timeOutState,
     TResult Function(_LoadedSities value)? loadedSities,
     required TResult orElse(),
   }) =>
@@ -404,8 +414,8 @@ class __$InitialCopyWithImpl<$Res> extends _$SityStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial();
+class _$_Initial extends _Initial {
+  const _$_Initial() : super._();
 
   @override
   String toString() {
@@ -427,6 +437,7 @@ class _$_Initial implements _Initial {
     required TResult Function() initial,
     required TResult Function() getSiteis,
     required TResult Function() errorState,
+    required TResult Function() timeOutState,
     required TResult Function(List<Sity> loadedSities) loadedSities,
   }) {
     return initial();
@@ -438,6 +449,7 @@ class _$_Initial implements _Initial {
     TResult Function()? initial,
     TResult Function()? getSiteis,
     TResult Function()? errorState,
+    TResult Function()? timeOutState,
     TResult Function(List<Sity> loadedSities)? loadedSities,
   }) {
     return initial?.call();
@@ -449,6 +461,7 @@ class _$_Initial implements _Initial {
     TResult Function()? initial,
     TResult Function()? getSiteis,
     TResult Function()? errorState,
+    TResult Function()? timeOutState,
     TResult Function(List<Sity> loadedSities)? loadedSities,
     required TResult orElse(),
   }) {
@@ -464,6 +477,7 @@ class _$_Initial implements _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(_GetSiteis value) getSiteis,
     required TResult Function(_errorState value) errorState,
+    required TResult Function(_timeoutState value) timeOutState,
     required TResult Function(_LoadedSities value) loadedSities,
   }) {
     return initial(this);
@@ -475,6 +489,7 @@ class _$_Initial implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(_GetSiteis value)? getSiteis,
     TResult Function(_errorState value)? errorState,
+    TResult Function(_timeoutState value)? timeOutState,
     TResult Function(_LoadedSities value)? loadedSities,
   }) {
     return initial?.call(this);
@@ -486,6 +501,7 @@ class _$_Initial implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(_GetSiteis value)? getSiteis,
     TResult Function(_errorState value)? errorState,
+    TResult Function(_timeoutState value)? timeOutState,
     TResult Function(_LoadedSities value)? loadedSities,
     required TResult orElse(),
   }) {
@@ -496,8 +512,9 @@ class _$_Initial implements _Initial {
   }
 }
 
-abstract class _Initial implements SityState {
+abstract class _Initial extends SityState {
   const factory _Initial() = _$_Initial;
+  const _Initial._() : super._();
 }
 
 /// @nodoc
@@ -519,8 +536,8 @@ class __$GetSiteisCopyWithImpl<$Res> extends _$SityStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_GetSiteis implements _GetSiteis {
-  const _$_GetSiteis();
+class _$_GetSiteis extends _GetSiteis {
+  const _$_GetSiteis() : super._();
 
   @override
   String toString() {
@@ -542,6 +559,7 @@ class _$_GetSiteis implements _GetSiteis {
     required TResult Function() initial,
     required TResult Function() getSiteis,
     required TResult Function() errorState,
+    required TResult Function() timeOutState,
     required TResult Function(List<Sity> loadedSities) loadedSities,
   }) {
     return getSiteis();
@@ -553,6 +571,7 @@ class _$_GetSiteis implements _GetSiteis {
     TResult Function()? initial,
     TResult Function()? getSiteis,
     TResult Function()? errorState,
+    TResult Function()? timeOutState,
     TResult Function(List<Sity> loadedSities)? loadedSities,
   }) {
     return getSiteis?.call();
@@ -564,6 +583,7 @@ class _$_GetSiteis implements _GetSiteis {
     TResult Function()? initial,
     TResult Function()? getSiteis,
     TResult Function()? errorState,
+    TResult Function()? timeOutState,
     TResult Function(List<Sity> loadedSities)? loadedSities,
     required TResult orElse(),
   }) {
@@ -579,6 +599,7 @@ class _$_GetSiteis implements _GetSiteis {
     required TResult Function(_Initial value) initial,
     required TResult Function(_GetSiteis value) getSiteis,
     required TResult Function(_errorState value) errorState,
+    required TResult Function(_timeoutState value) timeOutState,
     required TResult Function(_LoadedSities value) loadedSities,
   }) {
     return getSiteis(this);
@@ -590,6 +611,7 @@ class _$_GetSiteis implements _GetSiteis {
     TResult Function(_Initial value)? initial,
     TResult Function(_GetSiteis value)? getSiteis,
     TResult Function(_errorState value)? errorState,
+    TResult Function(_timeoutState value)? timeOutState,
     TResult Function(_LoadedSities value)? loadedSities,
   }) {
     return getSiteis?.call(this);
@@ -601,6 +623,7 @@ class _$_GetSiteis implements _GetSiteis {
     TResult Function(_Initial value)? initial,
     TResult Function(_GetSiteis value)? getSiteis,
     TResult Function(_errorState value)? errorState,
+    TResult Function(_timeoutState value)? timeOutState,
     TResult Function(_LoadedSities value)? loadedSities,
     required TResult orElse(),
   }) {
@@ -611,8 +634,9 @@ class _$_GetSiteis implements _GetSiteis {
   }
 }
 
-abstract class _GetSiteis implements SityState {
+abstract class _GetSiteis extends SityState {
   const factory _GetSiteis() = _$_GetSiteis;
+  const _GetSiteis._() : super._();
 }
 
 /// @nodoc
@@ -635,8 +659,8 @@ class __$errorStateCopyWithImpl<$Res> extends _$SityStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_errorState implements _errorState {
-  const _$_errorState();
+class _$_errorState extends _errorState {
+  const _$_errorState() : super._();
 
   @override
   String toString() {
@@ -658,6 +682,7 @@ class _$_errorState implements _errorState {
     required TResult Function() initial,
     required TResult Function() getSiteis,
     required TResult Function() errorState,
+    required TResult Function() timeOutState,
     required TResult Function(List<Sity> loadedSities) loadedSities,
   }) {
     return errorState();
@@ -669,6 +694,7 @@ class _$_errorState implements _errorState {
     TResult Function()? initial,
     TResult Function()? getSiteis,
     TResult Function()? errorState,
+    TResult Function()? timeOutState,
     TResult Function(List<Sity> loadedSities)? loadedSities,
   }) {
     return errorState?.call();
@@ -680,6 +706,7 @@ class _$_errorState implements _errorState {
     TResult Function()? initial,
     TResult Function()? getSiteis,
     TResult Function()? errorState,
+    TResult Function()? timeOutState,
     TResult Function(List<Sity> loadedSities)? loadedSities,
     required TResult orElse(),
   }) {
@@ -695,6 +722,7 @@ class _$_errorState implements _errorState {
     required TResult Function(_Initial value) initial,
     required TResult Function(_GetSiteis value) getSiteis,
     required TResult Function(_errorState value) errorState,
+    required TResult Function(_timeoutState value) timeOutState,
     required TResult Function(_LoadedSities value) loadedSities,
   }) {
     return errorState(this);
@@ -706,6 +734,7 @@ class _$_errorState implements _errorState {
     TResult Function(_Initial value)? initial,
     TResult Function(_GetSiteis value)? getSiteis,
     TResult Function(_errorState value)? errorState,
+    TResult Function(_timeoutState value)? timeOutState,
     TResult Function(_LoadedSities value)? loadedSities,
   }) {
     return errorState?.call(this);
@@ -717,6 +746,7 @@ class _$_errorState implements _errorState {
     TResult Function(_Initial value)? initial,
     TResult Function(_GetSiteis value)? getSiteis,
     TResult Function(_errorState value)? errorState,
+    TResult Function(_timeoutState value)? timeOutState,
     TResult Function(_LoadedSities value)? loadedSities,
     required TResult orElse(),
   }) {
@@ -727,8 +757,132 @@ class _$_errorState implements _errorState {
   }
 }
 
-abstract class _errorState implements SityState {
+abstract class _errorState extends SityState {
   const factory _errorState() = _$_errorState;
+  const _errorState._() : super._();
+}
+
+/// @nodoc
+abstract class _$timeoutStateCopyWith<$Res> {
+  factory _$timeoutStateCopyWith(
+          _timeoutState value, $Res Function(_timeoutState) then) =
+      __$timeoutStateCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$timeoutStateCopyWithImpl<$Res> extends _$SityStateCopyWithImpl<$Res>
+    implements _$timeoutStateCopyWith<$Res> {
+  __$timeoutStateCopyWithImpl(
+      _timeoutState _value, $Res Function(_timeoutState) _then)
+      : super(_value, (v) => _then(v as _timeoutState));
+
+  @override
+  _timeoutState get _value => super._value as _timeoutState;
+}
+
+/// @nodoc
+
+class _$_timeoutState extends _timeoutState {
+  const _$_timeoutState() : super._();
+
+  @override
+  String toString() {
+    return 'SityState.timeOutState()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _timeoutState);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() getSiteis,
+    required TResult Function() errorState,
+    required TResult Function() timeOutState,
+    required TResult Function(List<Sity> loadedSities) loadedSities,
+  }) {
+    return timeOutState();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? getSiteis,
+    TResult Function()? errorState,
+    TResult Function()? timeOutState,
+    TResult Function(List<Sity> loadedSities)? loadedSities,
+  }) {
+    return timeOutState?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? getSiteis,
+    TResult Function()? errorState,
+    TResult Function()? timeOutState,
+    TResult Function(List<Sity> loadedSities)? loadedSities,
+    required TResult orElse(),
+  }) {
+    if (timeOutState != null) {
+      return timeOutState();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_GetSiteis value) getSiteis,
+    required TResult Function(_errorState value) errorState,
+    required TResult Function(_timeoutState value) timeOutState,
+    required TResult Function(_LoadedSities value) loadedSities,
+  }) {
+    return timeOutState(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_GetSiteis value)? getSiteis,
+    TResult Function(_errorState value)? errorState,
+    TResult Function(_timeoutState value)? timeOutState,
+    TResult Function(_LoadedSities value)? loadedSities,
+  }) {
+    return timeOutState?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_GetSiteis value)? getSiteis,
+    TResult Function(_errorState value)? errorState,
+    TResult Function(_timeoutState value)? timeOutState,
+    TResult Function(_LoadedSities value)? loadedSities,
+    required TResult orElse(),
+  }) {
+    if (timeOutState != null) {
+      return timeOutState(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _timeoutState extends SityState {
+  const factory _timeoutState() = _$_timeoutState;
+  const _timeoutState._() : super._();
 }
 
 /// @nodoc
@@ -764,8 +918,8 @@ class __$LoadedSitiesCopyWithImpl<$Res> extends _$SityStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LoadedSities implements _LoadedSities {
-  _$_LoadedSities(this.loadedSities);
+class _$_LoadedSities extends _LoadedSities {
+  _$_LoadedSities(this.loadedSities) : super._();
 
   @override
   final List<Sity> loadedSities;
@@ -799,6 +953,7 @@ class _$_LoadedSities implements _LoadedSities {
     required TResult Function() initial,
     required TResult Function() getSiteis,
     required TResult Function() errorState,
+    required TResult Function() timeOutState,
     required TResult Function(List<Sity> loadedSities) loadedSities,
   }) {
     return loadedSities(this.loadedSities);
@@ -810,6 +965,7 @@ class _$_LoadedSities implements _LoadedSities {
     TResult Function()? initial,
     TResult Function()? getSiteis,
     TResult Function()? errorState,
+    TResult Function()? timeOutState,
     TResult Function(List<Sity> loadedSities)? loadedSities,
   }) {
     return loadedSities?.call(this.loadedSities);
@@ -821,6 +977,7 @@ class _$_LoadedSities implements _LoadedSities {
     TResult Function()? initial,
     TResult Function()? getSiteis,
     TResult Function()? errorState,
+    TResult Function()? timeOutState,
     TResult Function(List<Sity> loadedSities)? loadedSities,
     required TResult orElse(),
   }) {
@@ -836,6 +993,7 @@ class _$_LoadedSities implements _LoadedSities {
     required TResult Function(_Initial value) initial,
     required TResult Function(_GetSiteis value) getSiteis,
     required TResult Function(_errorState value) errorState,
+    required TResult Function(_timeoutState value) timeOutState,
     required TResult Function(_LoadedSities value) loadedSities,
   }) {
     return loadedSities(this);
@@ -847,6 +1005,7 @@ class _$_LoadedSities implements _LoadedSities {
     TResult Function(_Initial value)? initial,
     TResult Function(_GetSiteis value)? getSiteis,
     TResult Function(_errorState value)? errorState,
+    TResult Function(_timeoutState value)? timeOutState,
     TResult Function(_LoadedSities value)? loadedSities,
   }) {
     return loadedSities?.call(this);
@@ -858,6 +1017,7 @@ class _$_LoadedSities implements _LoadedSities {
     TResult Function(_Initial value)? initial,
     TResult Function(_GetSiteis value)? getSiteis,
     TResult Function(_errorState value)? errorState,
+    TResult Function(_timeoutState value)? timeOutState,
     TResult Function(_LoadedSities value)? loadedSities,
     required TResult orElse(),
   }) {
@@ -868,8 +1028,9 @@ class _$_LoadedSities implements _LoadedSities {
   }
 }
 
-abstract class _LoadedSities implements SityState {
+abstract class _LoadedSities extends SityState {
   factory _LoadedSities(List<Sity> loadedSities) = _$_LoadedSities;
+  _LoadedSities._() : super._();
 
   List<Sity> get loadedSities;
   @JsonKey(ignore: true)

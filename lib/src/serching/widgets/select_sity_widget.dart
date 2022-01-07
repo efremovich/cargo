@@ -1,4 +1,7 @@
+import 'package:cargo/src/bloc/sity_block/sity_bloc.dart';
+import 'package:cargo/src/models/sity/sity.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SelectCityWidget extends StatelessWidget {
   const SelectCityWidget({
@@ -10,39 +13,16 @@ class SelectCityWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final SityBloc sityBloc = context.read<SityBloc>();
     return TextField(
+      onTap: () {
+        print("a");
+      },
       decoration: InputDecoration(
         hintText: hintText,
       ),
     );
   }
-}
-
-@immutable
-class User {
-  const User({
-    required this.email,
-    required this.name,
-  });
-
-  final String email;
-  final String name;
-
-  @override
-  String toString() {
-    return '$name, $email';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (other.runtimeType != runtimeType) {
-      return false;
-    }
-    return other is User && other.name == name && other.email == email;
-  }
-
-  @override
-  int get hashCode => hashValues(email, name);
 }
 
 class AutocompleteBasicUserExample extends StatelessWidget {
@@ -51,32 +31,31 @@ class AutocompleteBasicUserExample extends StatelessWidget {
 
   final String hintText;
 
-  static const List<User> _userOptions = <User>[
-    User(name: 'Alice', email: 'alice@example.com'),
-    User(name: 'Bob', email: 'bob@example.com'),
-    User(name: 'Charlie', email: 'charlie123@gmail.com'),
+  static const List<Sity> _userOptions = <Sity>[
+    Sity(name: 'Елань', uuid: 'Елань'),
+    Sity(name: 'Волгоград', uuid: 'Волгоград'),
   ];
 
-  static String _displayStringForOption(User option) => option.name;
+  static String _displayStringForOption(Sity option) => option.name;
 
   @override
   Widget build(BuildContext context) {
-    return Autocomplete<User>(
-      initialValue: TextEditingValue(
-        text: hintText,
-      ),
+    return Autocomplete<Sity>(
+      // initialValue: TextEditingValue(
+      //   text: hintText,
+      // ),
       displayStringForOption: _displayStringForOption,
       optionsBuilder: (TextEditingValue textEditingValue) {
         // if (textEditingValue.text == '') {
         //   return this.hintText;
         // }
-        return _userOptions.where((User option) {
+        return _userOptions.where((Sity option) {
           return option
               .toString()
               .contains(textEditingValue.text.toLowerCase());
         });
       },
-      onSelected: (User selection) {
+      onSelected: (Sity selection) {
         debugPrint('You just selected ${_displayStringForOption(selection)}');
       },
     );

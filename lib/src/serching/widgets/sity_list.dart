@@ -1,4 +1,4 @@
-import 'package:cargo/src/bloc/sity_bloc.dart';
+import 'package:cargo/src/bloc/sity_block/sity_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -18,6 +18,14 @@ class SityList extends StatelessWidget {
         );
         state.when(
           initial: () {},
+          timeOutState: () {
+            nextWidget = Center(
+              child: Text(
+                'Ответа от сервера не поступило в течение 2 секунд',
+                style: const TextStyle(fontSize: 20.0),
+              ),
+            );
+          },
           getSiteis: () {
             nextWidget = const Center(child: CircularProgressIndicator());
           },
