@@ -25,6 +25,10 @@ class _$SityEventTearOff {
   _Loaded loaded() {
     return const _Loaded();
   }
+
+  _Add add() {
+    return const _Add();
+  }
 }
 
 /// @nodoc
@@ -36,18 +40,21 @@ mixin _$SityEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() loaded,
+    required TResult Function() add,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? loaded,
+    TResult Function()? add,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? loaded,
+    TResult Function()? add,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -55,18 +62,21 @@ mixin _$SityEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Add value) add,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Loaded value)? loaded,
+    TResult Function(_Add value)? add,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Loaded value)? loaded,
+    TResult Function(_Add value)? add,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -127,6 +137,7 @@ class _$_Started implements _Started {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() loaded,
+    required TResult Function() add,
   }) {
     return started();
   }
@@ -136,6 +147,7 @@ class _$_Started implements _Started {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? loaded,
+    TResult Function()? add,
   }) {
     return started?.call();
   }
@@ -145,6 +157,7 @@ class _$_Started implements _Started {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? loaded,
+    TResult Function()? add,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -158,6 +171,7 @@ class _$_Started implements _Started {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Add value) add,
   }) {
     return started(this);
   }
@@ -167,6 +181,7 @@ class _$_Started implements _Started {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Loaded value)? loaded,
+    TResult Function(_Add value)? add,
   }) {
     return started?.call(this);
   }
@@ -176,6 +191,7 @@ class _$_Started implements _Started {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Loaded value)? loaded,
+    TResult Function(_Add value)? add,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -229,6 +245,7 @@ class _$_Loaded implements _Loaded {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() loaded,
+    required TResult Function() add,
   }) {
     return loaded();
   }
@@ -238,6 +255,7 @@ class _$_Loaded implements _Loaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? loaded,
+    TResult Function()? add,
   }) {
     return loaded?.call();
   }
@@ -247,6 +265,7 @@ class _$_Loaded implements _Loaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? loaded,
+    TResult Function()? add,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -260,6 +279,7 @@ class _$_Loaded implements _Loaded {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Add value) add,
   }) {
     return loaded(this);
   }
@@ -269,6 +289,7 @@ class _$_Loaded implements _Loaded {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Loaded value)? loaded,
+    TResult Function(_Add value)? add,
   }) {
     return loaded?.call(this);
   }
@@ -278,6 +299,7 @@ class _$_Loaded implements _Loaded {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Loaded value)? loaded,
+    TResult Function(_Add value)? add,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -289,6 +311,114 @@ class _$_Loaded implements _Loaded {
 
 abstract class _Loaded implements SityEvent {
   const factory _Loaded() = _$_Loaded;
+}
+
+/// @nodoc
+abstract class _$AddCopyWith<$Res> {
+  factory _$AddCopyWith(_Add value, $Res Function(_Add) then) =
+      __$AddCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$AddCopyWithImpl<$Res> extends _$SityEventCopyWithImpl<$Res>
+    implements _$AddCopyWith<$Res> {
+  __$AddCopyWithImpl(_Add _value, $Res Function(_Add) _then)
+      : super(_value, (v) => _then(v as _Add));
+
+  @override
+  _Add get _value => super._value as _Add;
+}
+
+/// @nodoc
+
+class _$_Add implements _Add {
+  const _$_Add();
+
+  @override
+  String toString() {
+    return 'SityEvent.add()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _Add);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() loaded,
+    required TResult Function() add,
+  }) {
+    return add();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? loaded,
+    TResult Function()? add,
+  }) {
+    return add?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? loaded,
+    TResult Function()? add,
+    required TResult orElse(),
+  }) {
+    if (add != null) {
+      return add();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Add value) add,
+  }) {
+    return add(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Add value)? add,
+  }) {
+    return add?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Add value)? add,
+    required TResult orElse(),
+  }) {
+    if (add != null) {
+      return add(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Add implements SityEvent {
+  const factory _Add() = _$_Add;
 }
 
 /// @nodoc

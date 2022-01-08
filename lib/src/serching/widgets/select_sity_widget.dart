@@ -1,4 +1,4 @@
-import 'package:cargo/src/bloc/sity_block/sity_bloc.dart';
+import 'package:cargo/src/bloc/form_data_bloc/form_data_bloc.dart';
 import 'package:cargo/src/models/sity/sity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,14 +13,18 @@ class SelectCityWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SityBloc sityBloc = context.read<SityBloc>();
-    return TextField(
-      onTap: () {
-        print("a");
+    return BlocBuilder<FormDataBloc, FormDataState>(
+      builder: (context, state) {
+        return TextField(
+          readOnly: true,
+          onTap: () {
+            print("a");
+          },
+          decoration: InputDecoration(
+            hintText: hintText,
+          ),
+        );
       },
-      decoration: InputDecoration(
-        hintText: hintText,
-      ),
     );
   }
 }

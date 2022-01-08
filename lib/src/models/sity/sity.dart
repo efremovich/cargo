@@ -16,6 +16,6 @@ class Sity with _$Sity {
   factory Sity.fromJson(Map<String, dynamic> json) => _$SityFromJson(json);
 
   String infoSity() {
-    return "My Sity us $name and uuid is $uuid";
+    return "$name";
   }
 }

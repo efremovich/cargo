@@ -1,7 +1,10 @@
-import 'package:cargo/src/bloc/sity_block/sity_bloc.dart';
+import 'package:cargo/src/bloc/form_data_bloc/form_data_bloc.dart';
+import 'package:cargo/src/bloc/sity_bloc/sity_bloc.dart';
+import 'package:cargo/src/serching/sity_search_widget/sity_search_list.widget.dart';
 import 'package:cargo/src/serching/widgets/date_picker_widget.dart';
 import 'package:cargo/src/serching/widgets/select_sity_widget.dart';
 import 'package:cargo/src/serching/widgets/sity_list.dart';
+import 'package:cargo/src/services/formData_repository.dart';
 import 'package:cargo/src/services/sity_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,12 +23,20 @@ const String formData = "";
 class _MySearchingWidgetState extends State<MySearchingWidget> {
   DateTime selectedDate = DateTime.now();
   final sitiesRepository = SityRepository();
+  final formDataRepository = FormDataRepository();
   final String from = "Откуда";
   final String where = "Куда";
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<SityBloc>(
-      create: (context) => SityBloc(sitiesRepository),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<SityBloc>(
+          create: (context) => SityBloc(sitiesRepository),
+        ),
+        BlocProvider<FormDataBloc>(
+          create: (context) => FormDataBloc(formDataRepository),
+        ),
+      ],
       child: Scaffold(
         appBar: AppBar(
           title: const Text("Купить билет на автобус"),
@@ -84,10 +95,11 @@ class FindButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SityBloc sityBloc = context.read<SityBloc>();
+    // final SityBloc sityBloc = context.read<SityBloc>();
     return ElevatedButton.icon(
         onPressed: () {
-          sityBloc.add(const SityEvent.started());
+          // sityBloc.add(const SityEvent.started());
+          Navigator.restorablePushNamed(context, SitySerarchWidget.routeName);
         },
         icon: const Icon(Icons.find_in_page_outlined),
         label: const Text("Найти"));
