@@ -114,8 +114,22 @@ class SityListWidget extends StatelessWidget {
             getSiteis: () {
               nextWidget = const Center(child: CircularProgressIndicator());
             },
-            errorState: () {},
-            timeOutState: () {},
+            errorState: () {
+              nextWidget = const Center(
+                child: Text(
+                  'Что то пошло не так, ошибка',
+                  style: TextStyle(fontSize: 20.0),
+                ),
+              );
+            },
+            timeOutState: () {
+              nextWidget = const Center(
+                child: Text(
+                  'Сервер не ответил',
+                  style: TextStyle(fontSize: 20.0),
+                ),
+              );
+            },
             loadedSities: (loadedSities) {
               nextWidget = Expanded(
                 child: ListView.builder(
