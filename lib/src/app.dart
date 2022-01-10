@@ -1,6 +1,5 @@
 import 'package:cargo/src/constans/colors.dart';
-import 'package:cargo/src/serching/seraching_widget.dart';
-import 'package:cargo/src/serching/sity_search_widget/sity_search_list.widget.dart';
+import 'package:cargo/src/feachers/search_page/presentation/ui/search_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -90,10 +89,10 @@ class MyApp extends StatelessWidget {
                 switch (routeSettings.name) {
                   case SettingsView.routeName:
                     return SettingsView(controller: settingsController);
-                  case SitySerarchWidget.routeName:
-                    return const SitySerarchWidget();
+                  // case SitySerarchWidget.routeName:
+                  //   return const SitySerarchWidget();
                   default:
-                    return const MySearchingWidget();
+                    return const SearchPage();
                 }
               },
             );

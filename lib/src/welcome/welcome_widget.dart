@@ -1,5 +1,4 @@
 import 'package:cargo/src/constans/colors.dart';
-import 'package:cargo/src/serching/seraching_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -30,12 +29,7 @@ class _MyWelcomeWidgetState extends State<MyWelcomeWidget> {
             const Spacer(),
             const LogoWidget(),
             const Spacer(),
-            ElevatedButton(
-                onPressed: () => {
-                      Navigator.restorablePushNamed(
-                          context, MySearchingWidget.routeName),
-                    },
-                child: const Text(">")),
+            ElevatedButton(onPressed: () => {}, child: const Text(">")),
             const Spacer(),
             const Text(
               'Линия спорта',
